@@ -1,7 +1,5 @@
 module.exports = function reverseInplace (a) {
-  var length = a.length
-
-  for (var i = 0, j = length - 1; i < length / 2; ++i, --j) {
+  for (var i = 0, j = a.length - 1; i < j; ++i, --j) {
     var t = a[j]
 
     a[j] = a[i]
