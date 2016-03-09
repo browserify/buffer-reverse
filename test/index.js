@@ -1,34 +1,30 @@
-/* global describe, it */
-
-var assert = require('assert')
+var test = require('tape')
 var reverse = require('../')
 var reverseInplace = require('../inplace')
 var fixtures = require('./fixtures')
 
-describe('reverse', function () {
+test('reverse', function (t) {
   fixtures.forEach(function (f) {
-    it('returns ' + f.expected + ' for ' + f.a, function () {
+    t.test('returns ' + f.expected + ' for ' + f.a, function (t) {
       var a = new Buffer(f.a, 'hex')
-      var actual = reverse(a)
-
-      assert.equal(actual.toString('hex'), f.expected)
-
-      // input unchanged
-      assert.equal(a.toString('hex'), f.a)
+      t.same(reverse(a).toString('hex'), f.expected)
+      t.same(a.toString('hex'), f.a) // input unchanged
+      t.end()
     })
   })
+
+  t.end()
 })
 
-describe('reverse/inplace', function () {
+test('reverse/inplace', function (t) {
   fixtures.forEach(function (f) {
-    it('returns ' + f.expected + ' for ' + f.a, function () {
+    t.test('returns ' + f.expected + ' for ' + f.a, function (t) {
       var a = new Buffer(f.a, 'hex')
-      var actual = reverseInplace(a)
-
-      assert.equal(actual.toString('hex'), f.expected)
-
-      // input mutated
-      assert.equal(a.toString('hex'), f.expected)
+      t.same(reverseInplace(a).toString('hex'), f.expected)
+      t.same(a.toString('hex'), f.expected) // input mutated
+      t.end()
     })
   })
+
+  t.end()
 })
