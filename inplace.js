@@ -1,10 +1,10 @@
-module.exports = function reverseInplace (a) {
-  for (var i = 0, j = a.length - 1; i < j; ++i, --j) {
-    var t = a[j]
+module.exports = function reverseInplace (buffer) {
+  for (var i = 0, j = buffer.length - 1; i < j; ++i, --j) {
+    var t = buffer[j]
 
-    a[j] = a[i]
-    a[i] = t
+    buffer[j] = buffer[i]
+    buffer[i] = t
   }
 
-  return a
+  return buffer
 }
