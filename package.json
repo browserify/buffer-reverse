@@ -2,6 +2,10 @@
   "name": "buffer-reverse",
   "version": "1.0.0",
   "description": "A lite module for reverse-operations on buffers",
+  "files": [
+    "index.js",
+    "inplace.js"
+  ],
   "main": "index.js",
   "scripts": {
     "standard": "standard",
