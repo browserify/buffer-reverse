@@ -2,11 +2,15 @@
   "name": "buffer-reverse",
   "version": "1.0.0",
   "description": "A lite module for reverse-operations on buffers",
+  "files": [
+    "index.js",
+    "inplace.js"
+  ],
   "main": "index.js",
   "scripts": {
     "standard": "standard",
     "test": "npm run-script standard && npm run-script unit",
-    "unit": "mocha"
+    "unit": "tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -31,7 +35,7 @@
   "author": "Daniel Cousens",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "*",
-    "standard": "*"
+    "standard": "*",
+    "tape": "*"
   }
 }
