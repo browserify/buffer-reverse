@@ -1,6 +1,6 @@
 {
   "name": "buffer-reverse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lite module for reverse-operations on buffers",
   "files": [
     "index.js",
