@@ -1,10 +1,14 @@
 module.exports = function reverse (src) {
-  var buffer = new Buffer(src.length)
+  if (typeof src.reverse === 'function') {
+    return src.reverse()
+  } else {
+    var buffer = new Buffer(src.length)
 
-  for (var i = 0, j = src.length - 1; i <= j; ++i, --j) {
-    buffer[i] = src[j]
-    buffer[j] = src[i]
+    for (var i = 0, j = src.length - 1; i <= j; ++i, --j) {
+      buffer[i] = src[j]
+      buffer[j] = src[i]
+    }
+
+    return buffer
   }
-
-  return buffer
 }
