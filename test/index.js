@@ -1,3 +1,4 @@
+var Buffer = require('safe-buffer').Buffer
 var test = require('tape')
 var reverse = require('../')
 var reverseInplace = require('../inplace')
@@ -6,7 +7,7 @@ var fixtures = require('./fixtures')
 test('reverse', function (t) {
   fixtures.forEach(function (f) {
     t.test('returns ' + f.expected + ' for ' + f.a, function (t) {
-      var a = new Buffer(f.a, 'hex')
+      var a = Buffer.from(f.a, 'hex')
       t.same(reverse(a).toString('hex'), f.expected)
       t.same(a.toString('hex'), f.a) // input unchanged
       t.end()
@@ -19,7 +20,7 @@ test('reverse', function (t) {
 test('reverse/inplace', function (t) {
   fixtures.forEach(function (f) {
     t.test('returns ' + f.expected + ' for ' + f.a, function (t) {
-      var a = new Buffer(f.a, 'hex')
+      var a = Buffer.from(f.a, 'hex')
       t.same(reverseInplace(a).toString('hex'), f.expected)
       t.same(a.toString('hex'), f.expected) // input mutated
       t.end()
